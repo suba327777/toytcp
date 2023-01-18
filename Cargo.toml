@@ -1,0 +1,18 @@
+[package]
+name = "toytcp"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+# 低レイヤなネットワークプログラミングを行うためのクレート
+pnet = '0.31.0'
+#エラー処理
+anyhow = '1.0'
+#乱数
+rand = '0.8'
+
+[dev-dependencies]
+#ctr+cによるシグナルをハンドリング
+ctrlc = '3.1'
