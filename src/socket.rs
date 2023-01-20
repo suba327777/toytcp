@@ -11,7 +11,7 @@ use std::time::SystemTime;
 const SOCKET_BUFFER_SIZE: usize = 4380;
 
 //(local_addr,remote_addr,local_port,remote_port)のタプルでソケットを識別する
-#[derive(Debug, Hash, Eq, ParticalEq, Clone, Copy)]
+#[derive(Debug, Hash, Eq, PartialEq, Clone, Copy)]
 pub struct SockID(pub Ipv4Addr, pub Ipv4Addr, pub u16, pub u16);
 
 pub struct Socket {
@@ -32,7 +32,7 @@ impl Socket {
         remote_port: u16,
     ) -> Result<Self> {
         //送信用のチャネルを使用し、セグメントの送信を行う
-        let (sender, _) = transport::transport_channel() = transport::transport_channel(
+        let (sender, _) = transport::transport_channel(
             65535,
             TransportChannelType::Layer4(TransportProtocol::Ipv4(IpNextHeaderProtocols::Tcp)),
         )?;
