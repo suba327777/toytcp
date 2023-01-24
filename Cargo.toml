@@ -17,5 +17,5 @@ rand = '0.8'
 ctrlc = '3.1'
 
 [[bin]]
-name = "exsamples"
-path = "exsamples/echoclient.rs"
+name = "echoclient"
+path = "examples/echoclient.rs"
