@@ -28,7 +28,7 @@ impl TCPPacket {
     }
 
     pub fn get_seq(&self) -> u32 {
-        u32::from_be_bytes([
+        u32::from_be_bytes9([
             self.buffer[4],
             self.buffer[5],
             self.buffer[6],
@@ -122,8 +122,8 @@ impl Packet for TCPPacket {
 impl Debug for TCPPacket {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
         write!(
-            f,
-            r"
+        f,
+        r"
         src:{}
         dst:{}
         flag:{}
@@ -132,15 +132,6 @@ impl Debug for TCPPacket {
             self.get_dest(),
             tcpflags::flag_to_string(self.get_flag()),
             self.payload().len()
-        )
-    }
-}
 
-//pnetのチャネルから受信したTcpPacketを変換する
-impl<'a> From<TcpPacket<'a>> for TCPPacket {
-    fn from(packet: TcpPacket) -> Self {
-        Self {
-            buffer: packet.packet().to_vec(),
-        }
-    }
+    )
 }
