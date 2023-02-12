@@ -42,6 +42,7 @@ pub struct RecvParam {
     pub tail: u32,        //受信seqの最後尾
 }
 
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub enum TcpStatus {
     Listen,
     SynSent,
